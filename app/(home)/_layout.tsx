@@ -1,3 +1,4 @@
+import { IS_WEB } from "@/constants/platform";
 import { useBackgroundColor } from "@/contexts/BackgroundColorProvider";
 import { useRandomColor } from "@/hooks/useRandomColor";
 import React from "react";
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
   },
   colorText: {
     position: "absolute",
-    right: 10,
-    bottom: 10,
+    right: IS_WEB ? 10 : 20,
+    bottom: IS_WEB ? 10 : 20,
   },
 });
