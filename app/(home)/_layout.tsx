@@ -1,13 +1,15 @@
 import { useBackgroundColor } from '@/contexts/BackgroundColorProvider';
+import { useRandomColor } from '@/hooks/useRandomColor';
 import React from 'react';
 
 import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 
 export default function TabLayout() {
   const {backgroundColor, setBackgroundColor} = useBackgroundColor();
+  const randomColor = useRandomColor();
 
   const onPageClick = () => {
-    setBackgroundColor("#000")
+    setBackgroundColor(randomColor)
    }
 
   return (
