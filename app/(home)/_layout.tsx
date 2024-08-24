@@ -12,17 +12,21 @@ import {
 
 export default function TabLayout() {
   const { backgroundColor, setBackgroundColor } = useBackgroundColor();
-  const randomColor = useRandomColor();
+  const { randomRGBColor, randomRGBColorText } = useRandomColor();
+  const textColorStyle = { color: randomRGBColorText };
 
   const onPageClick = () => {
-    setBackgroundColor(randomColor);
+    setBackgroundColor(randomRGBColor);
   };
 
   return (
     <TouchableOpacity onPress={onPageClick} style={styles.container}>
       {!!backgroundColor ? (
         <View style={[styles.container, { backgroundColor }]}>
-          <Text>Hello there!</Text>
+          <Text style={textColorStyle}>Hello there!</Text>
+          <View style={styles.colorText}>
+            <Text style={textColorStyle}>{backgroundColor}</Text>
+          </View>
         </View>
       ) : (
         <ActivityIndicator size="large" />
@@ -38,5 +42,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     alignContent: "center",
+  },
+  colorText: {
+    position: "absolute",
+    right: 10,
+    bottom: 10,
   },
 });

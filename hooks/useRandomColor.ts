@@ -3,7 +3,9 @@ export const useRandomColor = () => {
   const g = Math.floor(Math.random() * 256);
   const b = Math.floor(Math.random() * 256);
 
-  const randomRGBColor = `rgb(${r}, ${g}, ${b})`;
+  const randomColor = `${r}, ${g}, ${b}`;
+  const randomRGBColor = `rgba(${randomColor}, 1)`;
+  const randomRGBColorText = `rgba(${randomColor}, 0.8)`;
 
-  return randomRGBColor;
+  return { randomRGBColor, randomRGBColorText };
 };
