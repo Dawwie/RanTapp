@@ -5,6 +5,6 @@ export interface BackgroundColorState {
   setBackgroundColor: (backgroundColor: string) => void;
 }
 
-export const BackgroundColorContext = createContext<BackgroundColorState | undefined>(
-  undefined,
-);
+export const BackgroundColorContext = createContext<
+  BackgroundColorState | undefined
+>(undefined);
