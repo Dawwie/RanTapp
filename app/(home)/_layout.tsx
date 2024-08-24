@@ -2,7 +2,7 @@ import { useBackgroundColor } from '@/contexts/BackgroundColorProvider';
 import { useRandomColor } from '@/hooks/useRandomColor';
 import React from 'react';
 
-import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
+import { Text, TouchableOpacity, View, StyleSheet, ActivityIndicator } from 'react-native';
 
 export default function TabLayout() {
   const {backgroundColor, setBackgroundColor} = useBackgroundColor();
@@ -14,11 +14,12 @@ export default function TabLayout() {
 
   return (
     <TouchableOpacity onPress={onPageClick} style={styles.container}>
-
+    {!!backgroundColor ? (
     <View style={[styles.container, {backgroundColor}]}>
       <Text>Hello there!</Text>
     </View>
-    </TouchableOpacity>
+  ): <ActivityIndicator size="large" />}
+  </TouchableOpacity>
   );
 }
 
@@ -27,6 +28,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: "100%",
     justifyContent: 'center',
-    alignItems: "center"
+    alignItems: "center",
+    alignContent: "center",
   }
 })
